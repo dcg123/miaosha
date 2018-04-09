@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class GoodsService {
-	
+
 	@Autowired
 	GoodsDao goodsDao;
-	
+
 	public List<GoodsVo> listGoodsVo(){
 		return goodsDao.listGoodsVo();
 	}

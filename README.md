@@ -18,5 +18,9 @@ JSR303参数校验+全局异常处理器
 redis分布式session:
   通过UUIDUtil获取随机数作为token  吧唯一token作为用户的唯一标识符保存到redis中 通过Cookie吧token返回给客户端
   通过重写WebMvcConfigurerAdapter下的方法 在进入到Controller前在redis中获取用户信息 这样减少代码的冗余 在需要用户信息的方法中注入用户实体类
-
   
+页面高并发优化
+  页面缓存 
+  解决超卖
+  秒杀静态化
+  对象缓存
