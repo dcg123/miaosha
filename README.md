@@ -2,9 +2,9 @@
 =====
 ##用到的技术<br>
 ![](https://github.com/dcg123/miaosha/blob/master/src/main/resources/static/img/technical.png)<br>
-##实现的模块
+##实现的模块<br>
  ![](https://github.com/dcg123/miaosha/blob/master/src/main/resources/static/img/function.png)<br>
-##集成redis:
+##集成redis:<br>
 
   >>1：添加redis依赖,添加Fastjson依赖（用于序列化）<br> 
   >>2:加载redis配置文件(RedisConfig 使用@ConfigurationProperties来读取配置文件)<br> 
