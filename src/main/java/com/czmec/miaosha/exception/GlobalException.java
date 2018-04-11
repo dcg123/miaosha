@@ -1,6 +1,5 @@
 package com.czmec.miaosha.exception;
 
-
 import com.czmec.miaosha.result.CodeMsg;
 
 public class GlobalException extends RuntimeException{

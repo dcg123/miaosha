@@ -4,8 +4,6 @@ import com.czmec.miaosha.domain.Goods;
 
 import java.util.Date;
 
-
-
 public class GoodsVo extends Goods {
 	private Double miaoshaPrice;
 	private Integer stockCount;

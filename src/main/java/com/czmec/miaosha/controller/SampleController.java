@@ -12,14 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
-
 @Controller
 @RequestMapping("/demo")
 public class SampleController {
 
 	@Autowired
-    UserService userService;
+	UserService userService;
 	
 	@Autowired
     RedisService redisService;

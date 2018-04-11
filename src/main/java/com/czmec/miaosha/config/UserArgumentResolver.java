@@ -1,9 +1,5 @@
 package com.czmec.miaosha.config;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.czmec.miaosha.domain.MiaoshaUser;
 import com.czmec.miaosha.service.MiaoshaUserService;
 import org.apache.commons.lang3.StringUtils;
@@ -15,13 +11,15 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Service
 public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
 	@Autowired
-	MiaoshaUserService userService;
+    MiaoshaUserService userService;
 	
 	public boolean supportsParameter(MethodParameter parameter) {
 		Class<?> clazz = parameter.getParameterType();
@@ -44,6 +42,9 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
 	private String getCookieValue(HttpServletRequest request, String cookiName) {
 		Cookie[]  cookies = request.getCookies();
+		if(cookies == null || cookies.length <= 0){
+			return null;
+		}
 		for(Cookie cookie : cookies) {
 			if(cookie.getName().equals(cookiName)) {
 				return cookie.getValue();

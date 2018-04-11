@@ -9,8 +9,5 @@
         <module name="miaosha_1" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="miaosha_1" target="1.6" />
-    </bytecodeTargetLevel>
   </component>
 </project>

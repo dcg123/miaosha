@@ -1,38 +1,34 @@
 package com.czmec.miaosha.vo;
 
-import java.util.Date;
+import com.czmec.miaosha.domain.MiaoshaUser;
 
-/**
- * @author dcg
- * Created by user on 2018/4/9.
- */
 public class GoodsDetailVo {
-    private Double miaoshaPrice;
-    private Integer stockCount;
-    private Date startDate;
-    private Date endDate;
-    public Integer getStockCount() {
-        return stockCount;
-    }
-    public void setStockCount(Integer stockCount) {
-        this.stockCount = stockCount;
-    }
-    public Date getStartDate() {
-        return startDate;
-    }
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-    public Date getEndDate() {
-        return endDate;
-    }
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-    public Double getMiaoshaPrice() {
-        return miaoshaPrice;
-    }
-    public void setMiaoshaPrice(Double miaoshaPrice) {
-        this.miaoshaPrice = miaoshaPrice;
-    }
+	private int miaoshaStatus = 0;
+	private int remainSeconds = 0;
+	private GoodsVo goods ;
+	private MiaoshaUser user;
+	public int getMiaoshaStatus() {
+		return miaoshaStatus;
+	}
+	public void setMiaoshaStatus(int miaoshaStatus) {
+		this.miaoshaStatus = miaoshaStatus;
+	}
+	public int getRemainSeconds() {
+		return remainSeconds;
+	}
+	public void setRemainSeconds(int remainSeconds) {
+		this.remainSeconds = remainSeconds;
+	}
+	public GoodsVo getGoods() {
+		return goods;
+	}
+	public void setGoods(GoodsVo goods) {
+		this.goods = goods;
+	}
+	public MiaoshaUser getUser() {
+		return user;
+	}
+	public void setUser(MiaoshaUser user) {
+		this.user = user;
+	}
 }

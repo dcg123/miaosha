@@ -1,8 +1,5 @@
 package com.czmec.miaosha.service;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
-
 import com.czmec.miaosha.dao.MiaoshaUserDao;
 import com.czmec.miaosha.domain.MiaoshaUser;
 import com.czmec.miaosha.exception.GlobalException;
@@ -16,20 +13,21 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
 @Service
 public class MiaoshaUserService {
-
-
+	
+	
 	public static final String COOKI_NAME_TOKEN = "token";
-
+	
 	@Autowired
-	MiaoshaUserDao miaoshaUserDao;
-
+    MiaoshaUserDao miaoshaUserDao;
+	
 	@Autowired
 	RedisService redisService;
-
+	
 	public MiaoshaUser getById(long id) {
 		//取缓存
 		MiaoshaUser user = redisService.get(MiaoshaUserKey.getById, ""+id, MiaoshaUser.class);
@@ -74,7 +72,7 @@ public class MiaoshaUserService {
 		}
 		return user;
 	}
-
+	
 
 	public String login(HttpServletResponse response, LoginVo loginVo) {
 		if(loginVo == null) {
@@ -99,7 +97,7 @@ public class MiaoshaUserService {
 		addCookie(response, token, user);
 		return token;
 	}
-
+	
 	private void addCookie(HttpServletResponse response, String token, MiaoshaUser user) {
 		redisService.set(MiaoshaUserKey.token, token, user);
 		Cookie cookie = new Cookie(COOKI_NAME_TOKEN, token);

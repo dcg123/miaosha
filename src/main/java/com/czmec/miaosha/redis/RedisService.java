@@ -1,10 +1,8 @@
 package com.czmec.miaosha.redis;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.alibaba.fastjson.JSON;
-
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -70,21 +68,23 @@ public class RedisService {
 			  returnToPool(jedis);
 		 }
 	}
+	
 	/**
 	 * 删除
 	 * */
 	public boolean delete(KeyPrefix prefix, String key) {
-		Jedis jedis = null;
-		try {
-			jedis =  jedisPool.getResource();
+		 Jedis jedis = null;
+		 try {
+			 jedis =  jedisPool.getResource();
 			//生成真正的key
 			String realKey  = prefix.getPrefix() + key;
 			long ret =  jedis.del(key);
 			return ret > 0;
-		}finally {
-			returnToPool(jedis);
-		}
+		 }finally {
+			  returnToPool(jedis);
+		 }
 	}
+	
 	/**
 	 * 增加值
 	 * */

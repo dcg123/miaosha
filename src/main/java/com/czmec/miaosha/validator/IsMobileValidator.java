@@ -1,11 +1,10 @@
 package com.czmec.miaosha.validator;
-import  javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
 
 import com.czmec.miaosha.util.ValidatorUtil;
 import org.apache.commons.lang3.StringUtils;
 
-
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 public class IsMobileValidator implements ConstraintValidator<IsMobile, String> {
 
