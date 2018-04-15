@@ -1,6 +1,7 @@
 package com.czmec.miaosha.controller;
 
 import com.czmec.miaosha.domain.User;
+import com.czmec.miaosha.rabbitmq.MQSender;
 import com.czmec.miaosha.redis.RedisService;
 import com.czmec.miaosha.redis.UserKey;
 import com.czmec.miaosha.result.CodeMsg;
@@ -21,7 +22,14 @@ public class SampleController {
 	
 	@Autowired
     RedisService redisService;
-	
+	@Autowired
+    MQSender mqSender;
+    @RequestMapping("/mq")
+    @ResponseBody
+    public Result<String> mq() {
+        mqSender.send("hello,rabbitmq");
+        return Result.success("Hello，world");
+    }
     @RequestMapping("/hello")
     @ResponseBody
     public Result<String> home() {
